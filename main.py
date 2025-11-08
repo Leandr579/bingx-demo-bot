@@ -39,8 +39,14 @@ st.sidebar.header("⚙️ Configuración")
 rsi_low = st.sidebar.slider("RSI mínimo (BUY)", 10, 50, 30)
 rsi_high = st.sidebar.slider("RSI máximo (SELL)", 50, 90, 70)
 
-if st.button("▶️ Iniciar Bot"):
+start_bot = st.button("▶️ Iniciar Bot")
+
+if start_bot or st.session_state.get("bot_started", False):
+    st.session_state["bot_started"] = True
     st.write("Bot corriendo... (1 iteración de ejemplo)")
+    
+    # tu código de gráficos y señales
+
 
     try:
         bars = exchange.fetch_ohlcv(symbol, timeframe=timeframe, limit=100)
