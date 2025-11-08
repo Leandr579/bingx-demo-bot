@@ -1,5 +1,7 @@
-streamlit
+streamlit>=1.22.0
 ccxt
-ta
+ta-lib
 pandas
 numpy
+plotly
+
